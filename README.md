@@ -5,6 +5,7 @@
 基于Qt5的车载中控，最终目标是放入开发板中使用触摸屏控制。目前含有车载主菜单 (CarPlayMain)，音乐播放器 (MusicPlayer)。更多功能正在开发中......
 
 音乐播放器的轮子主要参考：<https://github.com/NJU-TJL/Qt5-MusicPlayer>
+
 代码思路也有参考：<https://blog.csdn.net/mbs520/article/details/112873809?spm=1001.2014.3001.5501>
 
 ## 功能
