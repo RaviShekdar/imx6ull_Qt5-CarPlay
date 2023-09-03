@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Assets/Image/Background1.jpg</file>
+        <file>Assets/Icon/next.png</file>
+        <file>Assets/Icon/pause.png</file>
+        <file>Assets/Icon/pre.png</file>
+        <file>Assets/Icon/sliderHandle.png</file>
+        <file>Assets/Icon/vol.png</file>
+        <file>Assets/Icon/quit.png</file>
+        <file>Assets/Icon/music.png</file>
+        <file>Assets/Icon/music-playing.png</file>
+        <file>Assets/Icon/playing.png</file>
+        <file>Assets/Icon/non-music.png</file>
+        <file>Assets/Icon/list.png</file>
+        <file>Assets/Icon/title.png</file>
+        <file>Assets/Icon/singer.png</file>
+        <file>Assets/Icon/duration.png</file>
+        <file>Assets/Icon/mute.png</file>
+        <file>Assets/Icon/random.png</file>
+        <file>Assets/Icon/loop.png</file>
+        <file>Assets/Icon/loop41.png</file>
+        <file>Assets/Icon/folder.png</file>
+        <file>Assets/Icon/neaten.png</file>
+        <file>Assets/Icon/up-arrow.png</file>
+        <file>Assets/Icon/down-arrow.png</file>
+        <file>Assets/Icon/sweep.png</file>
+    </qresource>
+</RCC>
