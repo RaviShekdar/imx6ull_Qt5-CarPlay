@@ -18,14 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     Threads.cpp \
     main.cpp \
-    MainWidget.cpp \
-    sr04.cpp
+    MainWidget.cpp
 
 HEADERS += \
     MainWidget.h \
     MyQSS.h \
-    Threads.h \
-    sr04.h
+    Threads.h
 
 FORMS += \
     MainWidget.ui

@@ -15,7 +15,6 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget
     ui->setupUi(this);
 
     init_ui();
-    init_dev();
     proMusic = new QProcess();
     init_shm();
 }
@@ -41,16 +40,6 @@ void MainWidget::init_ui()
     timeShowThread = new Thread_DateTime(ui->dateLabel, ui->timeLabel);
     timeShowThread->start();
     connect(timeShowThread, &QThread::finished, timeShowThread, &QObject::deleteLater);
-}
-
-void MainWidget::init_dev()
-{
-    sr04Thread = new Thread_sr04;
-    sr04Thread->start();
-    connect(sr04Thread, &QThread::finished, sr04Thread, &QObject::deleteLater);
-    //    switchAppTimer = new QTimer(this);
-    //    switchAppTimer->start(200);
-    //    connect(switchAppTimer, &QTimer::timeout, [&](){});
 }
 
 void MainWidget::shm_to_zero()
@@ -118,7 +107,6 @@ void MainWidget::on_btnQuit_clicked()
     zoom(ui->btnQuit);
 //    sr04_close();
     timeShowThread->stop();
-    sr04Thread->stop();
     close();
 }
 

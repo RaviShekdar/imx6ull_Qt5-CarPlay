@@ -30,7 +30,6 @@ public:
     ~MainWidget();
 
     void init_ui();
-    void init_dev();
     void init_shm();
     void exec_by_num(int num);
     void shm_to_zero();
@@ -47,7 +46,6 @@ private:
     QTimer* timerDT, * switchAppTimer, * readTimer, * detachTimer;
     QProcess* proMusic;
     Thread_DateTime* timeShowThread;
-    Thread_sr04* sr04Thread;
     QSharedMemory shmMenuToMusic, shmMusicToMenu;
 };
 
