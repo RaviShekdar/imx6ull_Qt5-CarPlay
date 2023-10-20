@@ -3,10 +3,13 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QDir>
 #include <QPropertyAnimation>
 #include <QTimer>
 #include <QProcess>
 #include <QSharedMemory>
+#include <QSystemSemaphore>
+#include <QThread>
 #include "Threads.h"
 
 // 共享内存传输的一些命令

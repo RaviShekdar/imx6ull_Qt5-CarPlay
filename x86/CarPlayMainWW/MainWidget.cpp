@@ -1,21 +1,28 @@
 #include "MainWidget.h"
 #include "ui_MainWidget.h"
 #include <QDebug>
-#include "MyQSS.h"
 #include <QTime>
 #include <QDate>
 #include <QString>
+#include <QStringList>
+#include "MyQSS.h"
 
-//QString musicAppPath = "D:/Software/BaiduNetdisk/BaiduSyncdisk/Code/QtCode/0_CarPlaySys/MusicPlayer/build-MusicPlayerWW-Desktop_Qt_5_12_8_MinGW_64_bit-Debug/debug/MusicPlayerWW.exe";  // 音乐播放器app的位置
-QString musicAppPath = "./MusicPlayerWW";
+#ifdef Q_OS_WINDOWS
+QString musicAppPath = QDir::currentPath() + "/MusicPlayerWW.exe";  // 音乐播放器app的位置
+#endif
+#ifdef Q_OS_LINUX
+QString musicAppPath = QDir::currentPath() + "/MusicPlayerWW";
+#endif
+
 int preNum = 0;
 
 MainWidget::MainWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MainWidget)
 {
     ui->setupUi(this);
 
-    init_ui();
     proMusic = new QProcess();
+    proMusic->start(musicAppPath, QStringList("-hide"));
+    init_ui();
     init_shm();
 }
 
@@ -35,8 +42,6 @@ void MainWidget::init_ui()
     ui->timeLabel->setStyleSheet(TimeLabelStyle());  // 设置时间标签的QSS
 
     // 线程：获取当前日期时间并显示
-//    timerDT = new QTimer(this);
-//    timerDT->start(500);
     timeShowThread = new Thread_DateTime(ui->dateLabel, ui->timeLabel);
     timeShowThread->start();
     connect(timeShowThread, &QThread::finished, timeShowThread, &QObject::deleteLater);
@@ -69,6 +74,8 @@ void MainWidget::init_shm()
 {
     shmMenuToMusic.setKey(QStringLiteral("shm_for_music"));  // 音乐播放器用共享内存键值
     shmMusicToMenu.setKey(QStringLiteral("shm_for_menu"));  // 菜单用共享内存键值
+    QSystemSemaphore semToMusic("sem_to_music", 0);
+    QSystemSemaphore semToMenu("sem_to_menu", 0);
     detachTimer = new QTimer(this);
     // 定时监测共享内存并读数据
     readTimer = new QTimer(this);
