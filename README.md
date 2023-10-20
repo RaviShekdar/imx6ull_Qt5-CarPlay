@@ -41,20 +41,16 @@
 
 ## 使用
 
-打开CarPlayMainWW工程，修改MainWidget.cpp中的变量：
-
-![20230803225537](https://image-hosting-1313474851.cos.ap-shanghai.myqcloud.com/Notes/20230803225537.png)
-
-1. 这是音乐播放器可执行文件的路径，可执行文件由qmake执行后生成，在Linux系统中就把.exe去掉。
-2. 运行CarPlayMainWW工程的可执行文件。
+1. QtCreator打开CarPlayMainWW和MusicPlayerWW的工程文件，可执行文件由qmake执行后生成。
+2. 运行CarPlayMainWW可执行文件。
 
 ## 改进日志
 
 - TODO
-  - [ ] 读取音乐文件的方式改为本地指定路径自动读取，取消数据库增删、解析歌曲信息功能。
-  - [ ] 在开发板 (Linux) 中，程序结束后，共享内存并不会消失，找找看有没有解决办法。
+  - [ ] 读取音乐文件的方式改为本地指定路径自动读取，取消数据库增删、解析歌曲信息功能
   - [ ] 更多的应用......
 
 - V1.1
   - [x] 使用多线程
   - [x] 添加arm版本，编写SR04超声波测距模块驱动程序，在Qt上编写传感器数据采集的线程
+  - [x] Menu初始化时MusicPlayer一起启动，且MusicPlayer第一次启动时隐藏界面
